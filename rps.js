@@ -91,8 +91,6 @@ function playRound(playerChoice, computerChoice)
         output = `CPU wins the game!`;
     }
 
-    console.log(`${playerScore}, ${cpuScore}`);
-
     return output;
 }
 
@@ -101,17 +99,30 @@ function game()
     const rockButton = document.querySelector(".rock-btn");
     const paperButton = document.querySelector(".paper-btn");
     const scissorsButton = document.querySelector(".scissors-btn");
+
+    const container = document.querySelector(".container");
+
+    const text = document.createElement("p");
+    text.classList.add("text");
+    container.appendChild(text);
+
+    const score = document.createElement("p");
+    score.classList.add("score");
+    container.appendChild(score);
     
     rockButton.addEventListener("click", () => {
-        console.log(playRound("Rock", getComputerChoice()));
+        text.textContent = playRound("Rock", getComputerChoice());
+        score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
     });
     
     paperButton.addEventListener("click", () => {
-        console.log(playRound("Paper", getComputerChoice()));
+        text.textContent = playRound("Paper", getComputerChoice());
+        score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
     });
     
     scissorsButton.addEventListener("click", () => {
-        console.log(playRound("Scissors", getComputerChoice()));
+        text.textContent = playRound("Scissors", getComputerChoice());
+        score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
     });
 }
 
