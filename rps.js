@@ -1,3 +1,6 @@
+let playerScore = 0;
+let cpuScore = 0;
+
 function getRandomInt(min, max)
 {
     return Math.floor(Math.random() * (max - min) + min);
@@ -44,49 +47,72 @@ function playRound(playerChoice, computerChoice)
 
     playerChoice = capitaliseWord(playerChoice);
 
-    if (playerChoice == computerChoice)
+    if (playerScore < 5 && cpuScore < 5)
     {
-        console.log("That's a tie! Let's replay that round.");
-        const userInput = prompt("Choice: ");
-        const cpuInput = getComputerChoice();
-        output = playRound(userInput, cpuInput);
+        if (playerChoice === computerChoice)
+        {
+            output = `That's a tie! Both players chose ${computerChoice}`;
+        }
+        else if ((playerChoice === r && computerChoice === p) || 
+        (playerChoice === p && computerChoice === s) || 
+        (playerChoice === s && computerChoice === r))
+        {
+            cpuScore = cpuScore + 1;
+
+            if (cpuScore === 5)
+            {
+                output = `CPU wins the game!`;
+            }
+            else
+            {
+                output = `You lose. You chose ${playerChoice} and CPU chose ${computerChoice}`;
+            }
+        }
+        else
+        {
+            playerScore = playerScore + 1;
+
+            if (playerScore === 5)
+            {
+                output = `Player wins the game!`;
+            }
+            else
+            {
+                output = `You win! You chose ${playerChoice} and CPU chose ${computerChoice}`;   
+            }
+        }
     }
-    else if ((playerChoice === r && computerChoice === p) || 
-    (playerChoice === p && computerChoice === s) || 
-    (playerChoice === s && computerChoice === r))
+    else if (playerScore === 5)
     {
-        output = `You lose. You chose ${playerChoice} and CPU chose ${computerChoice}`;
-        cpuScore = cpuScore + 1;
+        output = `Player wins the game!`;
     }
-    else
+    else if (cpuScore === 5)
     {
-        output = `You win! You chose ${playerChoice} and CPU chose ${computerChoice}`;
-        playerScore = playerScore + 1;
+        output = `CPU wins the game!`;
     }
+
+    console.log(`${playerScore}, ${cpuScore}`);
 
     return output;
 }
 
-const NUM_OF_ROUNDS = 5
-let playerScore = 0;
-let cpuScore = 0;
 function game()
 {
-    for (let i = 0; i < NUM_OF_ROUNDS; i++)
-    {
-        let userInput = prompt("Choice: ");
-        let cpuInput = getComputerChoice();
-        console.log(playRound(userInput, cpuInput));
-    }
-
-    if (playerScore > cpuScore)
-    {
-        console.log(`You win the game with a score of ${playerScore} point(s). CPU score: ${cpuScore} point(s).`);
-    }
-    else
-    {
-        console.log(`You lose as CPU scored ${cpuScore} point(s). Your score: ${playerScore} point(s).`);
-    }
+    const rockButton = document.querySelector(".rock-btn");
+    const paperButton = document.querySelector(".paper-btn");
+    const scissorsButton = document.querySelector(".scissors-btn");
+    
+    rockButton.addEventListener("click", () => {
+        console.log(playRound("Rock", getComputerChoice()));
+    });
+    
+    paperButton.addEventListener("click", () => {
+        console.log(playRound("Paper", getComputerChoice()));
+    });
+    
+    scissorsButton.addEventListener("click", () => {
+        console.log(playRound("Scissors", getComputerChoice()));
+    });
 }
 
 game();
