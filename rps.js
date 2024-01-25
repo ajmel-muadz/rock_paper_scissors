@@ -16,7 +16,7 @@ function capitaliseWord(word)
     return capitalisedWord;
 }
 
-function getComputerChoice()
+function getCpuChoice()
 {
     let randomInt = getRandomInt(1, 4);
 
@@ -37,7 +37,7 @@ function getComputerChoice()
     return result;
 }
 
-function playRound(playerChoice, computerChoice)
+function playRound(playerChoice, cpuChoice)
 {
     let output = "";
 
@@ -49,13 +49,13 @@ function playRound(playerChoice, computerChoice)
 
     if (playerScore < 5 && cpuScore < 5)
     {
-        if (playerChoice === computerChoice)
+        if (playerChoice === cpuChoice)
         {
-            output = `That's a tie! Both players chose ${computerChoice}`;
+            output = `That's a tie! Both players chose ${cpuChoice}`;
         }
-        else if ((playerChoice === r && computerChoice === p) || 
-        (playerChoice === p && computerChoice === s) || 
-        (playerChoice === s && computerChoice === r))
+        else if ((playerChoice === r && cpuChoice === p) || 
+        (playerChoice === p && cpuChoice === s) || 
+        (playerChoice === s && cpuChoice === r))
         {
             cpuScore = cpuScore + 1;
 
@@ -65,7 +65,7 @@ function playRound(playerChoice, computerChoice)
             }
             else
             {
-                output = `You lose. You chose ${playerChoice} and CPU chose ${computerChoice}`;
+                output = `You lose. You chose ${playerChoice} and CPU chose ${cpuChoice}`;
             }
         }
         else
@@ -78,7 +78,7 @@ function playRound(playerChoice, computerChoice)
             }
             else
             {
-                output = `You win! You chose ${playerChoice} and CPU chose ${computerChoice}`;   
+                output = `You win! You chose ${playerChoice} and CPU chose ${cpuChoice}`;   
             }
         }
     }
@@ -111,17 +111,17 @@ function game()
     container.appendChild(score);
     
     rockButton.addEventListener("click", () => {
-        text.textContent = playRound("Rock", getComputerChoice());
+        text.textContent = playRound("Rock", getCpuChoice());
         score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
     });
     
     paperButton.addEventListener("click", () => {
-        text.textContent = playRound("Paper", getComputerChoice());
+        text.textContent = playRound("Paper", getCpuChoice());
         score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
     });
     
     scissorsButton.addEventListener("click", () => {
-        text.textContent = playRound("Scissors", getComputerChoice());
+        text.textContent = playRound("Scissors", getCpuChoice());
         score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
     });
 }
