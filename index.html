@@ -3,13 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="styles.css">
         <script src="rps.js" defer></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+        </style>
     </head>
     <body>
-        <h1>Rock, Paper, Scissors</h1>
-        <button class="rock-btn">Rock</button>
-        <button class="paper-btn">Paper</button>
-        <button class="scissors-btn">Scissors</button>
+        <div class="header">
+            <h1 class="game-name">Rock, Paper, Scissors</h1>
+            <div class="tutorial-container">
+                <p class="tutorial">
+                    You are playing against the CPU (Computer). First to 5 points wins!
+                </p>
+            </div>
+        </div>
+        <div class="player-cpu-container">
+            <div class="player-container">
+                <p class="player-name">You:</p>
+                <p class="player-score">0</p>
+                <div class="player-symbol">
+                    ❔
+                </div>
+            </div>
+            <div class="cpu-container">
+                <p class="cpu-name">CPU:</p>
+                <p class="cpu-score">0</p>
+                <div class="cpu-symbol">
+                    ❔
+                </div>
+            </div>
+        </div>
+        <div class="choices-container">
+            <button class="rock-btn">Rock</button>
+            <button class="paper-btn">Paper</button>
+            <button class="scissors-btn">Scissors</button>
+        </div>
 
         <div class="container"></div>
     </body>

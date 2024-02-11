@@ -1,19 +1,10 @@
 let playerScore = 0;
 let cpuScore = 0;
+let gameWinSound = new Audio("game-win.wav")
 
 function getRandomInt(min, max)
 {
     return Math.floor(Math.random() * (max - min) + min);
-}
-
-function capitaliseWord(word)
-{
-    let firstLetter = word.slice(0, 1);
-    let remainingLetters = word.slice(1, word.length);
-
-    let capitalisedWord = firstLetter.toUpperCase() + remainingLetters.toLowerCase();
-
-    return capitalisedWord;
 }
 
 function getCpuChoice()
@@ -23,15 +14,15 @@ function getCpuChoice()
     let result = "";
     if (randomInt === 1)
     {
-        result = "Rock";
+        result = "🪨";
     }
     else if (randomInt === 2)
     {
-        result = "Paper";
+        result = "📜";
     }
     else
     {
-        result = "Scissors";
+        result = "✂️";
     }
 
     return result;
@@ -41,57 +32,28 @@ function playRound(playerChoice, cpuChoice)
 {
     let output = "";
 
-    let r = "Rock";
-    let p = "Paper";
-    let s = "Scissors";
+    let r = "🪨";
+    let p = "📜";
+    let s = "✂️";
 
-    playerChoice = capitaliseWord(playerChoice);
-
-    if (playerScore < 5 && cpuScore < 5)
+    if (playerChoice === cpuChoice)
     {
-        if (playerChoice === cpuChoice)
-        {
-            output = `That's a tie! Both players chose ${cpuChoice}`;
-        }
-        else if ((playerChoice === r && cpuChoice === p) || 
-        (playerChoice === p && cpuChoice === s) || 
-        (playerChoice === s && cpuChoice === r))
-        {
-            cpuScore = cpuScore + 1;
-
-            if (cpuScore === 5)
-            {
-                output = `CPU wins the game!`;
-            }
-            else
-            {
-                output = `You lose. You chose ${playerChoice} and CPU chose ${cpuChoice}`;
-            }
-        }
-        else
-        {
-            playerScore = playerScore + 1;
-
-            if (playerScore === 5)
-            {
-                output = `Player wins the game!`;
-            }
-            else
-            {
-                output = `You win! You chose ${playerChoice} and CPU chose ${cpuChoice}`;   
-            }
-        }
+        cpuScore = cpuScore;
+        playerScore = playerScore;
     }
-    else if (playerScore === 5)
+    else if ((playerChoice === r && cpuChoice === p) || 
+    (playerChoice === p && cpuChoice === s) || 
+    (playerChoice === s && cpuChoice === r))
     {
-        output = `Player wins the game!`;
+        cpuScore = cpuScore + 1;
     }
-    else if (cpuScore === 5)
+    else
     {
-        output = `CPU wins the game!`;
+        playerScore = playerScore + 1;
     }
+    
 
-    return output;
+    return cpuChoice;
 }
 
 function game()
@@ -100,30 +62,56 @@ function game()
     const paperButton = document.querySelector(".paper-btn");
     const scissorsButton = document.querySelector(".scissors-btn");
 
-    const container = document.querySelector(".container");
+    const playerSymbol = document.querySelector(".player-symbol");
+    const cpuSymbol = document.querySelector(".cpu-symbol");
+    const scorePlayer = document.querySelector(".player-score");
+    const scoreCPU = document.querySelector(".cpu-score");
 
-    const text = document.createElement("p");
-    text.classList.add("text");
-    container.appendChild(text);
-
-    const score = document.createElement("p");
-    score.classList.add("score");
-    container.appendChild(score);
-    
     rockButton.addEventListener("click", () => {
-        text.textContent = playRound("Rock", getCpuChoice());
-        score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
+        if (playerScore < 5 && cpuScore < 5)
+        {
+            playerSymbol.textContent = "🪨";
+            cpuSymbol.textContent = playRound("🪨", getCpuChoice());
+            scorePlayer.textContent = `${playerScore}`;
+            scoreCPU.textContent = `${cpuScore}`;
+            
+            if (playerScore >= 5 || cpuScore >= 5)
+            {
+                gameWinSound.play();
+            }
+        }
     });
     
     paperButton.addEventListener("click", () => {
-        text.textContent = playRound("Paper", getCpuChoice());
-        score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
+        if (playerScore < 5 && cpuScore < 5)
+        {
+            playerSymbol.textContent = "📜";
+            cpuSymbol.textContent = playRound("📜", getCpuChoice());
+            scorePlayer.textContent = `${playerScore}`;
+            scoreCPU.textContent = `${cpuScore}`;
+
+            if (playerScore >= 5 || cpuScore >= 5)
+            {
+                gameWinSound.play();
+            }
+        }
     });
     
     scissorsButton.addEventListener("click", () => {
-        text.textContent = playRound("Scissors", getCpuChoice());
-        score.textContent = `Player: ${playerScore}, CPU: ${cpuScore}`;
+        if (playerScore < 5 && cpuScore < 5)
+        {
+            playerSymbol.textContent = "✂️";
+            cpuSymbol.textContent = playRound("✂️", getCpuChoice());
+            scorePlayer.textContent = `${playerScore}`;
+            scoreCPU.textContent = `${cpuScore}`;
+
+            if (playerScore >= 5 || cpuScore >= 5)
+            {
+                gameWinSound.play();
+            }
+        }
     });
+    
 }
 
 game();
