@@ -1,2 +1,1 @@
-This is a Rock Paper Scissors game implemented using JavaScript. This project is an assessment
-from The Odin Project.
+Hello! This is my first ever proper website made by myself using HTML, CSS and JavaScript. It is a basic Rock, Paper, Scissors game. I haven't optimised it for mobile (so far) so if you are playing on mobile the game might look a bit bad. I'll do that later.
