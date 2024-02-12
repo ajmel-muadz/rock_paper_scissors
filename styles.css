@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     background-color: rgb(32, 32, 32);
 }
@@ -101,4 +101,110 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 50px;
+}
+
+.old-game-container {
+    opacity: 0.2;
+} */
+
+/* ------------------------------------------------------------------------------------- */
+
+body {
+    margin: 0;
+    background-color: rgb(32, 32, 32);
+}
+
+.new-game-name {
+    font-family: 'Protest Strike', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(25, 25, 25);
+    margin: 0;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    letter-spacing: 0.1875rem;
+    color: white;
+}
+
+.new-tutorial-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+
+.new-tutorial {
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    border: 0.25rem solid white;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    width: 46.875%;
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+.new-player-cpu-container {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.5625rem;
+    margin-bottom: 4.6875rem;
+}
+
+.new-player-container, .new-cpu-container {
+    text-align: center;
+}
+
+.new-player-name, .new-cpu-name, .new-player-score, .new-cpu-score {
+    display: inline-block;
+}
+
+.new-player-name, .new-cpu-name {
+    margin-right: 0.3125rem;
+}
+
+.new-player-symbol, .new-cpu-symbol {
+    background-color: rgb(210, 210, 210);
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 1.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.125rem;
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+.new-choices-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4.6875rem;
+}
+
+.new-rock-btn, .new-paper-btn, .new-scissors-btn {
+    background-color: #DB661F;
+    border: none;
+    height: 2.5rem;
+    width: 5rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.375rem;
+    margin: 0 0.625rem;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.new-rock-btn:hover, .new-paper-btn:hover, .new-scissors-btn:hover {
+    background-color: #a84f18;
+    color: rgb(216, 216, 216);
+}
+
+.new-rock-btn:active, .new-paper-btn:active, .new-scissors-btn:active {
+    opacity: 0.75;
 }
