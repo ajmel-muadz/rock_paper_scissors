@@ -1,120 +1,9 @@
-/* body {
-    margin: 0;
-    background-color: rgb(32, 32, 32);
-}
-
-.game-name {
-    font-family: 'Protest Strike', sans-serif;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(25, 25, 25);
-    margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    letter-spacing: 3px;
-    color: white;
-}
-
-.tutorial-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.tutorial {
-    display: flex;
-    justify-content: center;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    border: 4px solid white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 600px;
-}
-
-.choices-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 75px;
-}
-
-.rock-btn, .paper-btn, .scissors-btn {
-    background-color: #DB661F;
-    border: none;
-    height: 40px;
-    width: 80px;
-    color: white;
-    font-weight: bold;
-    border-radius: 6px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.15s, color 0.15s, opacity 0.15s;
-}
-
-.rock-btn:hover, .paper-btn:hover, .scissors-btn:hover {
-    background-color: #a84f18;
-    color: rgb(216, 216, 216);
-}
-
-.rock-btn:active, .paper-btn:active, .scissors-btn:active {
-    opacity: 0.75;
-}
-
-.player-cpu-container {
-    display: flex;
-    justify-content: space-evenly;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-    margin-bottom: 75px;
-}
-
-.player-container, .cpu-container {
-    text-align: center;
-}
-
-.player-name, .cpu-name, .player-score, .cpu-score {
-    display: inline-block;
-}
-
-.player-name, .cpu-name {
-    margin-right: 5px;
-}
-
-.container {
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-}
-
-.text, .score {
-    text-align: center;
-}
-
-.player-symbol, .cpu-symbol {
-    background-color: rgb(210, 210, 210);
-    width: 200px;
-    height: 200px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-}
-
-.old-game-container {
-    opacity: 0.2;
-} */
-
-/* ------------------------------------------------------------------------------------- */
-
 body {
     margin: 0;
     background-color: rgb(32, 32, 32);
 }
 
-.new-game-name {
+.game-name {
     font-family: 'Protest Strike', sans-serif;
     display: flex;
     justify-content: center;
@@ -126,13 +15,13 @@ body {
     color: white;
 }
 
-.new-tutorial-container {
+.tutorial-container {
     display: flex;
     justify-content: center;
     margin-top: 1.25rem;
 }
 
-.new-tutorial {
+.tutorial {
     display: flex;
     justify-content: center;
     font-family: 'Open Sans', sans-serif;
@@ -145,7 +34,7 @@ body {
 
 /* ------------------------------------------------------------------------------------ */
 
-.new-player-cpu-container {
+.player-cpu-container {
     display: flex;
     justify-content: space-evenly;
     color: white;
@@ -155,19 +44,19 @@ body {
     margin-bottom: 4.6875rem;
 }
 
-.new-player-container, .new-cpu-container {
+.player-container, .cpu-container {
     text-align: center;
 }
 
-.new-player-name, .new-cpu-name, .new-player-score, .new-cpu-score {
+.player-name, .cpu-name, .player-score, .cpu-score {
     display: inline-block;
 }
 
-.new-player-name, .new-cpu-name {
+.player-name, .cpu-name {
     margin-right: 0.3125rem;
 }
 
-.new-player-symbol, .new-cpu-symbol {
+.player-symbol, .cpu-symbol {
     background-color: rgb(210, 210, 210);
     width: 12.5rem;
     height: 12.5rem;
@@ -180,18 +69,18 @@ body {
 
 /* ------------------------------------------------------------------------------------ */
 
-.new-choices-container {
+.choices-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 4.6875rem;
 }
 
-.new-rock-btn, .new-paper-btn, .new-scissors-btn {
+.rock-btn, .paper-btn, .scissors-btn {
     background-color: #DB661F;
     border: none;
     height: 2.5rem;
-    width: 5rem;
+    width: 6.25%;
     color: white;
     font-weight: bold;
     border-radius: 0.375rem;
@@ -200,11 +89,11 @@ body {
     transition: background-color 0.15s, color 0.15s, opacity 0.15s;
 }
 
-.new-rock-btn:hover, .new-paper-btn:hover, .new-scissors-btn:hover {
+.rock-btn:hover, .paper-btn:hover, .scissors-btn:hover {
     background-color: #a84f18;
     color: rgb(216, 216, 216);
 }
 
-.new-rock-btn:active, .new-paper-btn:active, .new-scissors-btn:active {
+.rock-btn:active, .paper-btn:active, .scissors-btn:active {
     opacity: 0.75;
 }
